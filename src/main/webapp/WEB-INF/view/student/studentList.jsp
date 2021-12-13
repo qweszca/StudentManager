@@ -116,21 +116,7 @@
                 return false;
             });
 
-            //获取所有班级列表
-            $.ajax({
-                url: '${pageContext.request.contextPath}/clazz/getAll',
-                dataType: 'json',
-                type: 'post',
-                success: function (data) {
-                    $.each(data.data, function (index, item) {
-                        //value和值
-                        $('#clazz').append(new Option(item.name, item.name));// 下拉菜单里添加元素
-                        $('#clazz_add').append(new Option(item.name, item.name));
-                        $('#clazz_edit').append(new Option(item.name, item.name));
-                    });
-                    layui.form.render("select");
-                }
-            })
+
 
 
 
@@ -352,7 +338,7 @@
             <div class="layui-inline">
                 <label class="layui-form-label">班级</label>
                 <div class="layui-input-inline">
-                    <input type="text" placeholder="请输入班级" id="clazz_add" name="clazzName" lay-filter="clazz" autocomplete="off" class="layui-input">
+                    <input type="text" placeholder="请输入班级"  name="clazzName" lay-filter="clazz" autocomplete="off" class="layui-input">
                 </div>
             </div>
         </div>
@@ -428,12 +414,10 @@
                     <input type="radio" id="edit_gender_woman" name="gender" value="女" title="女">
                 </div>
             </div>
-            <div class="layui-input-inline">
-                <label class="layui-form-label">班级 :</label>
-                <div class="layui-input-block" style="width: 190px;height:37px; border: 1px solid beige" >
-                    <select id="clazz_edit" name="clazzName" lay-filter="clazz" >
-                        <option value="">请选择:</option>
-                    </select>
+            <div class="layui-inline">
+                <label class="layui-form-label">班级</label>
+                <div class="layui-input-inline">
+                    <input type="text" placeholder="请输入班级"  name="clazzName" lay-filter="clazz" autocomplete="off" class="layui-input">
                 </div>
             </div>
         </div>
